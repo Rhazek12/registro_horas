@@ -23,3 +23,8 @@ front-end/.env
 # Static Files
 front-end/build/
 back-end/staticfiles
+
+# Contraseñas y archivos de registro
+config.csv
+empleados.csv
+registro_actividades.csv
