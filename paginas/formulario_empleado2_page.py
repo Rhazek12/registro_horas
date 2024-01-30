@@ -14,7 +14,6 @@ def view_formulario2(page):
 
     def eliminar(e):
         if txt_nombre.value != None:
-            print(txt_nombre.value)
             eliminar_empleado(txt_nombre.value)
             page.go("/admin")
         else:

@@ -9,12 +9,10 @@ def view_horas_trabajadas(page):
 
     dt = ft.DataTable()
     date_picker_inicio = ft.DatePicker(
-        on_change=print("hola"),
         value=datetime.strptime('2024-01-1 00:00:00', '%Y-%m-%d %H:%M:%S'),
         first_date=datetime(2024, 1, 1),
     )
     date_picker_fin = ft.DatePicker(
-        on_change=print("hola"),
         value=datetime.strptime('2030-01-1 00:00:00', '%Y-%m-%d %H:%M:%S'),
         first_date=datetime(2024, 1, 1),
     )
@@ -34,7 +32,6 @@ def view_horas_trabajadas(page):
     def funcion_grande():
        lista_rows = []
        list_horas = calcular_horas_trabajadas(date_picker_inicio.value,date_picker_fin.value)
-       print(str(list_horas))
        for i in list_horas:
         nombre = str(i['nombre']) 
         horas = str(i['horas_trabajadas'])
