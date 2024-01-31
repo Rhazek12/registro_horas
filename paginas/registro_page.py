@@ -1,8 +1,23 @@
 import flet as ft
 from logica.registro_logic import *
 from logica.empleados_logic import obtener_empleados
+import os
+import sys
+
+base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+logo = os.path.join(base_path, 'logoASES.png')
 
 def view_regsitro(page):
+    page.window_width = 500        # window's width is 200 px
+    page.window_height = 600       # window's height is 200 px
+    page.window_resizable = False  # window is not resizable
+    page.window_maximizable = False
+    img = ft.Image(
+        src=logo,
+        width=250,
+        height=250,
+    )
+    row2 = ft.Row([img],alignment="center")
     lista_opciones = obtener_empleados()
     opciones = []
     error = ft.Text(value="", color="RED")
@@ -55,6 +70,7 @@ def view_regsitro(page):
                 txt_nombre,
                 row,
                 error,
+                row2,
             ],
         )
     )

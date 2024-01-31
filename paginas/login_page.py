@@ -1,13 +1,31 @@
 import flet as ft
 import csv
+import os
+import sys
 
+base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+
+# Usa rutas relativas para acceder a tus archivos
+csv_config = os.path.join(base_path, 'config.csv')
+logo = os.path.join(base_path, 'logoASES.png')
 def view_login(page):
+
+    page.window_width = 500        # window's width is 200 px
+    page.window_height = 600       # window's height is 200 px
+    page.window_resizable = False  # window is not resizable
+    page.window_maximizable = False
+    img = ft.Image(
+        src=logo,
+        width=200,
+        height=200,
+    )
+    row2 = ft.Row([img],alignment="center")
     txt_nombre = ft.TextField(value="" )
     txt_psswrd = ft.TextField(value="",password=True, can_reveal_password=True)
     error = ft.Text(value="", color="RED")
 
     def ingresar(e):
-        with open("config.csv", 'r') as archivo_csv:
+        with open(csv_config, 'r') as archivo_csv:
             lector_csv = csv.reader(archivo_csv)
             validador = False
             for fila in lector_csv:
@@ -42,6 +60,7 @@ def view_login(page):
                 txt_psswrd,
                 row,
                 error,
+                row2,
 
                 
                 

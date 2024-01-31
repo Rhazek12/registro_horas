@@ -70,6 +70,10 @@ def view_horas_trabajadas(page):
                     date_button_fin,
                 ],
             )
+    cv = ft.Column([dt],scroll=True,width=page.window_width - 100,alignment=ft.MainAxisAlignment.START,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,)
+    rv = ft.Row([cv], scroll=ft.ScrollMode.ALWAYS, expand=1,vertical_alignment=ft.CrossAxisAlignment.START,alignment="center")
+    
     page.views.append(
 
         ft.View(
@@ -81,7 +85,7 @@ def view_horas_trabajadas(page):
                 row2,
                 row3,
                 row,
-                dt,
+                rv,
             ],
         )
     )
